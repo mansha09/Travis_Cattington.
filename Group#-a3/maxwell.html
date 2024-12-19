@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maxwell's Biography</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="maxwell.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-dark-red text-white text-center py-3">
+    <h1>Maxwell's Biography</h1>
+    <nav>
+      <a href="index.html" class="text-white text-decoration-none mx-3">Home</a>
+      <a href="mona.html" class="text-white text-decoration-none mx-3">Mona</a>
+      <a href="tenley.html" class="text-white text-decoration-none mx-3">Tenley</a>
+      <a href="rocky.html" class="text-white text-decoration-none mx-3">Rocky</a>
+    </nav>
+  </header>
+  
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h3 class="text-center text-dark-red py-2">Maxwell's Gallery</h3>
+    <div class="card mb-3">
+      <img src="images/Maxwell/maxwell4.jpg" class="card-img-top" alt="Maxwell relaxing">
+      <div class="card-body"><p>Maxwell sitting in a box which is for dumb assholes.</p></div>
+    </div>
+    <div class="card mb-3">
+      <img src="images/Maxwell/maxwell12.jpg" class="card-img-top" alt="Maxwell playing">
+      <div class="card-body"><p>Maxwell sitting on a couch with friend thinking peacefully. </p></div>
+    </div>
+    <div class="card mb-3">
+      <img src="images/Maxwell/maxwell5.jpg" class="card-img-top" alt="Maxwell watching birds">
+      <div class="card-body"><p>Maxwell staring out of the box.</p></div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Biography Section -->
+    <section class="mb-4">
+      <h2><b><I>About Maxwell</I></b></h2>
+      <p>
+        Maxwell was my first cat, and he was the runt of his litter. He also had some complications 
+with a surgery, and that meant he had to wait to be adopted, so he was very lonely before I 
+came to get him – his whole litter had gone! However, because of that, he was extremely 
+affectionate and clingy. He was also a very large cat, so when he sat on my lap it didn’t 
+take long for my legs to fall asleep. 
+      </p>
+      <p>
+        I adopted Mona when he was about a year and a half old, and they initially didn’t get along, 
+        but they did eventually grow to like each other. They would often lay together and he would 
+        groom Mona until she got cranky about it. Very funny to watch! 
+      </p>
+      <p>
+        Unfortunately, I had to say goodbye to Maxwell way sooner than I would have liked – it 
+turns out, he was born with only one kidney (among other issues, like the one mentioned 
+when he was young), and he got a kidney infection. We were able to treat it, but it returned 
+several months later, and the vet said there was no way he would make it. He was only 6 
+years old. He is missed greatly, but he left a big impact on everyone’s lives, and lived his 
+best and was well taken care of!” 
+      </p>
+    </section>
+
+    <!-- Life Timeline -->
+    <section class="timeline mb-4">
+      <h2>Maxwell's Life Timeline</h2>
+      <ul>
+        <li><strong>2015:</strong> Maxwell was adopted into his forever home.</li>
+        <li><strong>2016:</strong> Met Mona, and they started bonding over time.</li>
+        <li><strong>2019:</strong> Discovered his love for Grilled Salmon.</li>
+        <li><strong>2021:</strong> Said goodbye but left a lasting legacy.</li>
+      </ul>
+    </section>
+
+    <!-- Did You Know? Section -->
+    <section class="did-you-know mb-4">
+      <h2>Did You Know?</h2>
+      <ul>
+        <li>Maxwell loved cuddles and always pawed at the door for attention.</li>
+        <li>He enjoyed watching birds from the window for hours.</li>
+        <li>He had an impressive appetite for Grilled Salmon.</li>
+      </ul>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section id="quiz" class="mb-4">
+      <h2>Test Your Knowledge About Maxwell</h2>
+      <form>
+        <div class="mb-3">
+          <label for="question1" class="form-label">What was Maxwell’s favorite treat?</label>
+          <select id="question1" class="form-select">
+            <option value="1">Grilled Salmon</option>
+            <option value="2">Tuna Chunks</option>
+            <option value="3">Chicken Breast</option>
+            <option value="4">Catnip Biscuits</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="checkAnswer()">Submit</button>
+      </form>
+      <p id="quizResult" class="mt-2"></p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h2>What People Say About Maxwell</h2>
+      <blockquote>
+        "Maxwell was the most affectionate cat I’ve ever met. He had a way of making everyone feel special." - Sarah
+      </blockquote>
+      <blockquote>
+        "He had a calming presence and always knew when you needed a cuddle." - James
+      </blockquote>
+    </section>
+
+    <!-- Gallery Section -->
+    <section>
+      <h2>Maxwell's Photo Gallery</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="images/Maxwell/maxwell4.jpg" alt="Maxwell 1">
+        </div>
+        <div class="gallery-item">
+          <img src="images/Maxwell/maxwell5.jpg" alt="Maxwell 2">
+        </div>
+        <div class="gallery-item">
+          <img src="images/Maxwell/maxwell6.jpg" alt="Maxwell 3">
+        </div>
+        <div class="gallery-item">
+          <img src="images/Maxwell/maxwell7.jpg" alt="Maxwell 4">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark-red text-white text-center py-2">
+    <p>Page by Mansha Rani. Images from Travis Cattington.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById("question1").value;
+      const result = document.getElementById("quizResult");
+      if (answer === "1") {
+        result.textContent = "Correct! Maxwell loved Grilled Salmon.";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Oops! Try again.";
+        result.style.color = "red";
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

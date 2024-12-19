@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travis's Cats - Landing Page</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <header class="bg-info text-white text-center py-1">
+    <h1>Welcome to Travis's Cats</h1>
+    <nav>
+      <a href="mona.html" class="text-white mx-3">Mona</a>
+      <a href="tenley.html" class="text-white mx-3">Tenley</a>
+      <a href="maxwell.html" class="text-white mx-3">Maxwell</a>
+      <a href="rocky.html" class="text-white mx-3">Rocky</a>
+    </nav>
+  </header>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 col-md-4">
+        <aside class="bg-light p-3 rounded">
+          <h2>Vote for Your Favorite Cat</h2>
+          <form id="pollForm">
+            <label for="username">Your Name:</label>
+            <input type="text" id="username" name="username" class="form-control mb-3" placeholder="Enter your name" required>
+            
+            <label for="favorite">Favorite Cat:</label>
+            <select id="favorite" name="favorite" class="form-control mb-3">
+              <option value="Mona">Mona</option>
+              <option value="Tenley">Tenley</option>
+              <option value="Maxwell">Maxwell</option>
+              <option value="Rocky">Rocky</option>
+            </select>
+            <button type="submit" class="btn btn-primary w-100">Vote</button>
+          </form>
+
+          <div id="pollResults" class="mt-4">
+            <h4>Current Results:</h4>
+            <ul class="list-group">
+              <li class="list-group-item">Mona: 0</li>
+              <li class="list-group-item">Tenley: 0</li>
+              <li class="list-group-item">Maxwell: 0</li>
+              <li class="list-group-item">Rocky: 0</li>
+            </ul>
+          </div>
+
+          
+        </aside>
+      </div>
+
+     
+      <div class="col-lg-9 col-md-8">
+        <h2>Blog Posts</h2>
+
+       
+        
+        
+        <article>
+          <h3>Mona and Tenley Fighting <span class="badge badge-primary">New</span></h3>
+          <p>Gosh, they sure do love to fight a lot – their personalities just clash. Mona is so anxious and shy all the
+            time, and Tenley is young and rambunctious and loves to play, so they just don’t get along sometimes! I’ve
+            tried many things to help, but the best thing to do is to have my partner and I play with each of them
+            separately and give them lots of cuddles – that does the trick!
+            </p>
+        </article>
+
+        <article>
+          <h3>Traveling <span class="badge badge-secondary">Maxwell</span></h3>
+          <p>Dangit, I have to go to New Orleans for a conference which means leaving my poor little kitties behind! I
+            can’t imagine they would enjoy such a trip… Tenley is terrified of leaving the house. Every time I put her
+            on a little harness to go for a walk, she panics and runs back inside. What a strange cat!
+            </p>
+        </article>
+
+        <article>
+          <h3>Space Making Post <span class="badge badge-secondary">Maxwell</span></h3>
+          <p>This is just to test your layout. It’s a bunch of lorem ipsum, which Maxwell spoke fluently.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc egestas lobortis arcu, nec mattis diam
+            consectetur at. Quisque nec leo id leo aliquet finibus. Praesent ut risus mattis libero condimentum dictum
+            imperdiet eget nibh. Donec elit erat, finibus vel rhoncus in, tincidunt ac lorem. Phasellus vestibulum ipsum
+            et lorem gravida, commodo accumsan magna posuere. Proin sodales egestas pellentesque. Pellentesque
+            habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam a nibh at est
+            condimentum porttitor ut quis est. Donec accumsan lobortis purus, eget rhoncus tellus varius lacinia.
+            Suspendisse potenti. Sed mollis egestas tempus. Duis a lectus libero. Nam sed est turpis. Nunc justo arcu,
+            feugiat quis elit eu, cursus euismod mi. Curabitur rutrum nisl libero, in elementum neque volutpat euismod.
+            Mauris semper sollicitudin purus nec tempus.</p>
+        </article>
+
+       
+        
+
+
+        
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+    <p>Page created by [Barinder Singh, Hitesh Negi , Mansha Rani], images by Travis Cattington</p>
+  </footer>
+
+  <script>
+    
+    const results = JSON.parse(localStorage.getItem('results')) || {
+      Mona: 0,
+      Tenley: 0,
+      Maxwell: 0,
+      Rocky: 0
+    };
+
+    
+    const pollResults = document.getElementById('pollResults');
+    function updateResults() {
+      pollResults.innerHTML = `
+        <h4>Current Results:</h4>
+        <ul class="list-group">
+          <li class="list-group-item">Mona: ${results.Mona}</li>
+          <li class="list-group-item">Tenley: ${results.Tenley}</li>
+          <li class="list-group-item">Maxwell: ${results.Maxwell}</li>
+          <li class="list-group-item">Rocky: ${results.Rocky}</li>
+        </ul>
+      `;
+    }
+    updateResults(); 
+
+    
+    document.getElementById('pollForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const favorite = document.getElementById('favorite').value;
+
+      
+      results[favorite]++;
+
+      
+      localStorage.setItem('results', JSON.stringify(results));
+
+      
+      updateResults();
+
+      
+      alert(`Thank you, ${username}! You voted for ${favorite}`);
+    });
+  </script>
+</body>
+</html>
